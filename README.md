@@ -1,4 +1,9 @@
 # Spring Boot Weather WebApp
+Maven clean install
+```
+mvn clean install -DskipTests
+```
+
 Docker image
 ```
 docker build -t spectrum/spring-boot-weather-webapp .
