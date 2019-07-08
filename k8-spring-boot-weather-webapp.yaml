@@ -1,0 +1,33 @@
+# k8-spring-boot-weather-webapp.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-weather-webapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: spring-boot-weather-webapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-weather-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-weather-webapp
+  template:
+    metadata:
+      labels:
+        app: spring-boot-weather-webapp
+    spec:
+      containers:
+      - name: spring-boot-weather-webapp
+        image: fuchsma/spring-boot-weather-webapp:1.0.0
+        ports:
+        - containerPort: 8080

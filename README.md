@@ -16,3 +16,8 @@ curl -s http://localhost:5000/api/weather/now/Belgium/Bilzen | jq .
 ```
 
 Test application: [http://localhost:5000/](http://localhost:5000/)
+
+Deploy to Kubernetes
+```
+kubectl apply -f k8-spring-boot-weather-webapp.yaml
+```
